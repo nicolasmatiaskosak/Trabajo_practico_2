@@ -42,6 +42,10 @@ public class TP3_ejercicio1 {
                 
                 
             }
+        }else{
+            System.out.println("Error en los parámetros de entrada, asegúrese"+
+                    " de introducirlos correctamente."+
+                    "\n<nombre ejecutable> <simbolo accion> <nombre accion> [...]");
         }
     }
 
