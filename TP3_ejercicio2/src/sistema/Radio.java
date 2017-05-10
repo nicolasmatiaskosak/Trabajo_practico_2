@@ -1,6 +1,7 @@
 package sistema;
 
-import modelo.*;
+import modelo.ListaReproduccion;
+import modelo.Cancion;
 
 // Clase Radio
 //
@@ -9,7 +10,7 @@ import modelo.*;
 public class Radio{
         
     public static void main(String[] args)         {
-        ListaReproducion lista = new ListaReproducion();
+       ListaReproduccion lista = new ListaReproduccion();
                 
 	// Creamos 10 canciones
         Cancion cancion1  = new Cancion("Cancion 1", "Autor 1");
