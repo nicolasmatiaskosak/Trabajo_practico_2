@@ -40,14 +40,7 @@ public class ListaReproduccion {
          * debería devolver null.
          * public Cancion getCancion (int indice)
          */
-        
-        try{
-            
-        }
-        catch{
-            
-        }
-                    
+               
         if (indice > listaReproduccion.size()){
             return null;
         }

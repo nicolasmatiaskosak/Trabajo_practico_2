@@ -43,4 +43,8 @@ public class Cancion {
         String mensaje = this.titulo + ", " + this.autor + "\n";
         return mensaje;
     }
+    
+    public boolean equals(Cancion cancion){
+        return this == cancion;
+    }
 }
