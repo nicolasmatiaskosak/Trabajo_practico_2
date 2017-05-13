@@ -9,14 +9,14 @@ package modelo;
  *
  * @author Diego Raul Fernandez
  */
-import java.util.ArrayList;
+//import java.util.ArrayList;
 public class ListaReproduccion {
     
-    private ArrayList<Cancion> listaReproduccion;
+    private Cancion[] listaReproduccion;
     private int contadorCanciones;
     
     public ListaReproduccion(){
-        this.listaReproduccion = new ArrayList<>(1);
+        this.listaReproduccion = new Cancion[1];
         this.contadorCanciones = 0;
     }
     
@@ -27,7 +27,7 @@ public class ListaReproduccion {
          * 
          * public void insertar (Cancion nuevaCancion)
          */
-        
+        listaReproduccion[listaReproduccion.length] = nuevaCancion;
         
     }
     
@@ -41,14 +41,18 @@ public class ListaReproduccion {
          * public Cancion getCancion (int indice)
          */
                
-        if (indice > listaReproduccion.size()){
+        if (indice > listaReproduccion.length){
             return null;
         }
-        return null;
+        return listaReproduccion[indice];
     }
     
     public void reemplazarCancion (Cancion nuevaCancion, int indice){
-        
+        if (indice > this.listaReproduccion.length){
+            
+        }else{
+            this.listaReproduccion[indice] = nuevaCancion;
+        }
     }
     
     public int getCantidadCanciones (){
