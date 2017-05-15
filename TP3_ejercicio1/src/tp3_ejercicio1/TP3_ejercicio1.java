@@ -30,10 +30,10 @@ public class TP3_ejercicio1 {
         if ((args.length % 2) == 0 && ((args.length != 0) && args.length <= 20)){
             //System.out.println("PASE IF");
             arrayAccion = new Accion[args.length/2];
-            for (i = 0; i < args.length; i+= 2){
+            for (i = 0, j = 0; i < args.length; i+= 2, j++){
                 //System.out.println("ENTRE FOR " + i + " VECES");
                 arrayAccion[j] = new Accion(args[i], args[i+1]);
-                j++;
+                
             }
             //System.out.println("PASE FOR");
             for (i = 0; i < arrayAccion.length; i++){
