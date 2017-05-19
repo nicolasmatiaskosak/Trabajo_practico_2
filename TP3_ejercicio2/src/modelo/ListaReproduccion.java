@@ -100,6 +100,7 @@ public class ListaReproduccion {
          * simplemente debe retornar. (No olvide los valores negativos.)
          * 
          * public void removerEn (int indice)
+         * 
          */
         int i =0;
         if (indice >= 0 && indice <= this.contadorCanciones ){
