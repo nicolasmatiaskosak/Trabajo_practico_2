@@ -34,7 +34,7 @@ public class Radio{
         System.out.println(lista);
         
         System.out.println("La primer canción es " + lista.getCancion(0));
-//        System.out.println("La canción en el índice -1 es " + lista.getCancion(-1));
+        System.out.println("La canción en el índice -1 es " + lista.getCancion(-1));
         System.out.println("La canción en el índice 6 es " + lista.getCancion(6));
         
         // Imprimir la última cancion sin usar un literal entero

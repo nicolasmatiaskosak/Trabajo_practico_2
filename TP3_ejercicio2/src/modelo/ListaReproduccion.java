@@ -59,7 +59,11 @@ public class ListaReproduccion {
             return null;
         }else{
             if (indice < 0){
-                return this.listaReproduccion[indice - 1];
+                if (indice == -1){
+                    return this.listaReproduccion[this.contadorCanciones - 1];
+                }else{
+                    return this.listaReproduccion[this.listaReproduccion.length - Math.abs(indice)];
+                }
             }else{
                 return this.listaReproduccion[indice];
             }
