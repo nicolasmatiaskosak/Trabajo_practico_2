@@ -83,7 +83,12 @@ public class ListaReproduccion {
                 System.out.println("Indice fuera de límite");
             }
             else{
-                this.listaReproduccion[indice] = nuevaCancion;
+                if (this.listaReproduccion[indice] == null){
+                    this.listaReproduccion[indice] = nuevaCancion;
+                    this.contadorCanciones += 1;
+                }else{
+                    this.listaReproduccion[indice] = nuevaCancion;
+                }
             }
         }
     }
@@ -114,8 +119,9 @@ public class ListaReproduccion {
             }
             
             this.listaReproduccion[i] = null;
+            this.contadorCanciones -= 1;
         }
-        this.contadorCanciones -= 1;
+        
     }
     
     public void insertarEn (Cancion nuevaCancion, int indice){
@@ -127,7 +133,36 @@ public class ListaReproduccion {
          * 
          * public void insertarEn (Cancion nuevaCancion, int indice)
          */
+        int i;
+        if (this.contadorCanciones + 1 > this.listaReproduccion.length){
+            this.redimensionar();
+        }
+        if (indice > this.listaReproduccion.length || indice < 0){
+            if (this.listaReproduccion[this.listaReproduccion.length-1] == null){
+                this.listaReproduccion[this.listaReproduccion.length-1] = nuevaCancion;
+                this.contadorCanciones += 1;
+            }else{
+                this.redimensionar();
+                this.listaReproduccion[this.listaReproduccion.length-1] = nuevaCancion;
+                this.contadorCanciones += 1;
+            }
+            
+        }else{
+            for (i = this.contadorCanciones; i > indice; i--){
+                this.listaReproduccion[i] = this.listaReproduccion[i-1];
+            }
+            this.listaReproduccion[i] = nuevaCancion;
+            this.contadorCanciones += 1;
+            this.redimensionar();
+        }
         
+//        this.redimensionar();
+//        if (indice > this.contadorCanciones){
+//            if (this.listaReproduccion[this.listaReproduccion.length-1] == null){
+                
+//            }
+//        } 
+       
     }
     
     public int encontrarIndice (Cancion cancionRequerida){
@@ -137,7 +172,15 @@ public class ListaReproduccion {
          * 
          * public int encontrarIndice (Cancion cancionRequerida)
          */
-        return 0;
+        //boolean encontrado = false;
+        int i = 0;
+        while (i < this.contadorCanciones){
+            if (this.listaReproduccion[i].equals(cancionRequerida)){
+                return i;
+            }
+            i++;
+        }
+        return -1;
     }
     
     public boolean contiene (Cancion cancionRequerida){
@@ -147,6 +190,13 @@ public class ListaReproduccion {
          * 
          * public boolean contiene (Cancion cancionRequerida)
          */
+        int i = 0;
+        while (i < this.contadorCanciones){
+            if (this.listaReproduccion[i].equals(cancionRequerida)){
+                return true;
+            }
+            i++;
+        }
         return false;
     }
 }
