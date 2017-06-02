@@ -1,0 +1,6 @@
+@startuml
+class Pila {
+-lista : Object[]
++vacia() : boolean
+}
+@enduml
