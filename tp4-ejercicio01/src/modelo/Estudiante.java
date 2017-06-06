@@ -10,11 +10,30 @@ package modelo;
  * @author Diego Raul Fernandez
  */
 public class Estudiante extends Persona{
-    private String algo;
+    private String situacionClase;
+
     
-    public Estudiante(String nom, String dir, String tel, String maile, String algo){
-        super.Persona(nom, dir, tel, maile);
-        this.algo = algo;
+    
+    public Estudiante(String nom, String dir, String tel,
+            String maile, String sitClase){
+        super.setNombre(nom);
+        super.setDireccion(dir);
+        super.setNroTelefono(tel);
+        super.setCorreoElectronico(maile);
+        this.situacionClase = sitClase;
     }
     
+    public String getSituacionClase() {
+        return situacionClase;
+    }
+
+    public void setSituacionClase(String situacionClase) {
+        this.situacionClase = situacionClase;
+    }
+    
+    @Override
+    public String toString(){
+        String mensaje = this.getClass() + " " + this.getNombre();
+        return mensaje;
+    }
 }

@@ -20,6 +20,7 @@ public class NoDocente extends Empleado{
         super.setDireccion(direccion);
         super.setNroTelefono(nroTelefono);
         super.setCorreoElectronico(correoE);
+        super.setFechaContrato();
         this.titulo = titulo;
     }
     
