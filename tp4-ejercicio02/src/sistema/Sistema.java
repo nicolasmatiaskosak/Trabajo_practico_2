@@ -20,8 +20,19 @@ public class Sistema {
         Pila miPila = new Pila();
         
         System.out.print("Hola, " + miPila.vacia()+"\n");
-        miPila.apilar("hola");
+        miPila.apilar(1);
+        miPila.apilar(2);
+        miPila.apilar(3);
+        miPila.apilar(4);
+        miPila.apilar(5);
+        //miPila.apilar(0); 
         System.out.print("Hola, " + miPila.vacia() + "\n");
+        
+        System.out.println("Cima: "+miPila.cima());
+        
+        System.out.println(miPila.toString());
+        
+        System.out.println("Desapilar: "+miPila.desapilar());
         
         System.out.print(miPila.toString()+"\n");
     }

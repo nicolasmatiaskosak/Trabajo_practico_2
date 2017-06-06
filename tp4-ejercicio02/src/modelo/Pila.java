@@ -27,11 +27,7 @@ pila>”*/
         lista = new ArrayList<>();
     }
     public boolean vacia(){
-        if (lista.isEmpty()){
-            return true;
-        }else{
-            return false;
-        }
+        return lista.isEmpty();
     }
     
     public int largo(){
@@ -41,21 +37,26 @@ pila>”*/
     public Object cima(){
         return lista.get(lista.size()-1);
     }
+    
     public Object desapilar(){
-        return lista.remove(lista.size()-1);
+        if (lista.isEmpty()){
+            return false;
+        }else{
+            return lista.remove(lista.size()-1);
+        }
     }
     
     public void apilar(Object o){
         lista.add(lista.size(), o);
     }
     
-    /**
-     * @Override
-     */
+    
+    @Override
     public String toString(){
         String listin = "Pila: ";
-        for (Object o : lista){
-           listin = listin + (String) o;
+        //int tamanio = this.lista.size();
+        for (int i = lista.size()-1; i>=0; i--){
+           listin = listin + " " + this.lista.get(i);
         }
         return listin;
     }
