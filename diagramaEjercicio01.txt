@@ -1,0 +1,34 @@
+@startuml diagramaEjercicio01.png
+Persona <|-- Empleado
+Persona <|-- Estudiante
+Empleado <|-- NoDocente
+Empleado <|-- Docente
+
+
+
+abstract class Persona {
+-nombre : String
+-direccion : String
+-nroTelefono : String
+-correoElectronico : String
+}
+
+abstract class Empleado {
+-salario : double
+-fechaContrato : Date
+}
+
+class Estudiante {
+-situacionClase : String
+}
+
+class Docente {
+-cargo : String
+}
+
+class NoDocente {
+-titulo : String
+}
+
+
+@enduml
