@@ -44,6 +44,14 @@ public class Cuenta {
         this.transacciones = new ArrayList<>();
     }
     
+     public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public void setid(int nuevoID){
         this.id = nuevoID;
     }
@@ -59,11 +67,11 @@ public class Cuenta {
     public double getsaldo(){
 	return this.saldo;
     }
-	
-	public void settasaInteresAnual(double nuevaTasaAnual){
-		/**algo*/
-		this.tasaInteresAnual = nuevaTasaAnual/100.0;
-	}
+    
+    public void settasaInteresAnual(double nuevaTasaAnual){
+	/**algo*/
+        this.tasaInteresAnual = nuevaTasaAnual/100.0;
+    }
 	
 	public double gettasaInteresAnual(){
 		return this.tasaInteresAnual*100;
@@ -87,21 +95,31 @@ public class Cuenta {
     }
     
     public void retirar (double aRetirar) {
-        Date fecha = new Date();
-        Transaccion transa;
-        transa = new Transaccion(fecha, 'R', aRetirar);
-        this.saldo = this.saldo - aRetirar;
-        this.transacciones.add(transa);
+        try{
+            Date fecha = new Date();
+            Transaccion transa;
+            transa = new Transaccion(fecha, 'R', aRetirar);
+            this.saldo = this.saldo - aRetirar;
+            this.transacciones.add(transa);
+        }
+        catch(java.lang.Exception e){
+            System.out.println(e.getMessage());
+        }
+        
        
     }
     
     public void depositar (double aDepositar) {
-        Date fecha = new Date();
-        Transaccion transa;
-        transa = new Transaccion(fecha, 'D', aDepositar);
-        this.saldo = this.saldo + aDepositar;
-        
-        this.transacciones.add(transa);
+        try{
+            Date fecha = new Date();
+            Transaccion transa;
+            transa = new Transaccion(fecha, 'D', aDepositar);
+            this.saldo = this.saldo + aDepositar;
+            this.transacciones.add(transa);
+        }
+        catch(java.lang.Exception e){
+            System.out.println(e.getMessage());
+        }
     }
     
     @Override
@@ -109,10 +127,15 @@ public class Cuenta {
         /*Un método denominado toString que devuelve
         una cadena de caracteres que contiene: el
         id, saldo, interés mensual y fecha en que se creó la cuenta.*/
-        String mensaje;
-        mensaje = this.id + ", " + this.saldo +
+        String mensaje, movimientos="";
+        for (Transaccion t : transacciones){
+            movimientos = movimientos + t.getFecha() + " " + t.getTipo() +
+                    " " + t.getCantidad() + "\n";
+        }
+        mensaje = this.getNombre()+", "+this.id + ", " + this.saldo +
                 ", " + this.getInteresMensual() + ", " +
-                this.fechaCreacion;
+                this.fechaCreacion + "\n" +
+                movimientos;
         return mensaje;
     }
 }
